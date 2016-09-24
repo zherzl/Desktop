@@ -1,0 +1,16 @@
+﻿<Window x:Class="_Lokacija_desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_Lokacija_desktop"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="753.693">
+    <Grid>
+        <Label x:Name="lblLong" Content="Label" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top" Width="209"/>
+        <Label x:Name="lblLat" Content="Label" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Width="209"/>
+        <WebBrowser HorizontalAlignment="Left" Height="299" Margin="181,10,0,0" VerticalAlignment="Top" Width="555"/>
+        <Label x:Name="lblLat_Copy" Content="Napomena:&#xD;&#xA;Google karte implementirati &#xD;&#xA;preko browser kontrole ... nekako&#xD;&#xA;&#xD;&#xA;Lik napisao na ovom linku:&#xD;&#xA;http://stackoverflow.com/questions/2867276/i-want-to-use-google-map-api-for-my-desktop-application" HorizontalAlignment="Left" Margin="0,116,0,0" VerticalAlignment="Top" Width="606" Height="152"/>
+
+    </Grid>
+</Window>
