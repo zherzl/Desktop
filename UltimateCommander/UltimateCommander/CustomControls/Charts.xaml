@@ -1,0 +1,99 @@
+﻿<Window x:Class="UltimateCommander.Charts"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Charts" Height="346" Width="509" Loaded="Window_Loaded">
+    <Window.Resources>
+        
+        <!--Brushes for background and border-->
+        <LinearGradientBrush x:Key="lgbBorderBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF12668D" Offset="1"/>
+            <GradientStop Color="#FFD9F3FF" Offset="0.011"/>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="lgbBorderBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF0086C5" Offset="1"/>
+            <GradientStop Color="#FF15B2FB"/>
+        </LinearGradientBrush>
+
+        <Style TargetType="{x:Type Border}">
+            <Setter Property="BorderBrush" Value="{StaticResource lgbBorderBrush}" />
+            <Setter Property="Background" Value="{StaticResource lgbBorderBackground}" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="Canvas.Bottom" Value="0" />
+        </Style>
+        
+        <Style TargetType="{x:Type Canvas}">
+            <Setter Property="Margin" Value="0.5,0" />
+        </Style>
+        
+        <!--Storyboard for border (chart) value change-->
+        <Storyboard x:Key="ChartValueChange">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Height" Storyboard.TargetName="border" DecelerationRatio="0.1" >
+                <EasingDoubleKeyFrame KeyTime="0:0:0.200" Value="{Binding ElementName=firstChartValue, Path=Text}"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="ChartValueChange2">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Height" Storyboard.TargetName="border2" DecelerationRatio="0.0" >
+                <!--<EasingDoubleKeyFrame KeyTime="0:0:0.200" Value="{Binding ElementName=secondChartValue, Path=Text}"/>-->
+                <SplineDoubleKeyFrame KeyTime="0:0:0.200" KeySpline="0.0,0.1 0.1,0.1" Value="{Binding ElementName=secondChartValue, Path=Text}" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        
+    </Window.Resources>
+    
+    <!--Triggers that 'Fire' Chart value change animation-->
+	<Window.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+			<BeginStoryboard Storyboard="{StaticResource ChartValueChange}"/>
+            <BeginStoryboard Storyboard="{StaticResource ChartValueChange2}"/>
+        </EventTrigger>
+        
+        <EventTrigger RoutedEvent="TextBoxBase.TextChanged" SourceName="firstChartValue">
+            <BeginStoryboard Storyboard="{StaticResource ChartValueChange}"/>
+        </EventTrigger>
+
+        <EventTrigger RoutedEvent="TextBoxBase.TextChanged" SourceName="secondChartValue">
+            <BeginStoryboard Storyboard="{StaticResource ChartValueChange2}"/>
+        </EventTrigger>
+        
+    </Window.Triggers>
+    
+    <Grid Name="mainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="31*"/>
+            <RowDefinition Height="284*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBox x:Name="firstChartValue" Grid.Column="0" Text="135" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+        <TextBox x:Name="secondChartValue" Grid.Column="1" Text="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+        
+        <Canvas Name="chart0Canvas" Grid.Column="0" Grid.RowSpan="1" Grid.Row="1">
+            <Border x:Name="border"
+                    MaxHeight="{Binding ElementName=chart0Canvas, Path=ActualHeight}" 
+                    Width="{Binding ActualWidth, ElementName=chart0Canvas, Mode=OneWay}" 
+                    Height="{Binding ElementName=firstChartValue, Path=Text}">
+                <TextBlock x:Name="chart0Text" Text="{Binding ElementName=firstChartValue, Path=Text}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"  />
+            </Border>
+        </Canvas>
+
+        <Canvas Name="chart1Canvas" Grid.Column="1" Grid.RowSpan="1" Grid.Row="1">
+            <Border x:Name="border2"
+                    MaxHeight="{Binding ElementName=chart1Canvas, Path=ActualHeight}" 
+                    Width="{Binding ActualWidth, ElementName=chart1Canvas, Mode=OneWay}" 
+                    Height="{Binding ElementName=secondChartValue, Path=Text}">
+                <TextBlock x:Name="chart1Text" Text="{Binding ElementName=secondChartValue, Path=Text}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"  />
+            </Border>
+        </Canvas>
+
+    </Grid>
+</Window>
