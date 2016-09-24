@@ -1,0 +1,44 @@
+﻿<Window x:Class="Z07.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <Style TargetType="Control" x:Key="mojStil">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <SolidColorBrush Color="DarkRed"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderBrush" Value="Pink"/>
+            <Setter Property="Foreground" Value="Pink"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderThickness" Value="5"/>
+            <Setter Property="LayoutTransform">
+                <Setter.Value>
+                    <RotateTransform Angle="30"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Margin" Value="-11"/>
+        </Style>
+        
+    
+
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="10,50">
+            <Button Content="1" Style="{StaticResource ResourceKey=mojStil}" ></Button>
+            <ComboBox Style="{StaticResource ResourceKey=mojStil}"  ></ComboBox>
+            <Expander Content="3" Style="{StaticResource ResourceKey=mojStil}" />
+            <TextBox Style="{StaticResource ResourceKey=mojStil}" />
+        </StackPanel>
+
+    </Grid>
+</Window>

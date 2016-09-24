@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingTest", "BindingTest\BindingTest.csproj", "{346FDBE0-5736-4544-BCD4-60B48AC90B85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimacijeTest", "AnimacijeTest\AnimacijeTest.csproj", "{2309C921-74AE-408F-9B85-645322C991AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{346FDBE0-5736-4544-BCD4-60B48AC90B85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{346FDBE0-5736-4544-BCD4-60B48AC90B85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{346FDBE0-5736-4544-BCD4-60B48AC90B85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{346FDBE0-5736-4544-BCD4-60B48AC90B85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2309C921-74AE-408F-9B85-645322C991AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2309C921-74AE-408F-9B85-645322C991AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2309C921-74AE-408F-9B85-645322C991AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2309C921-74AE-408F-9B85-645322C991AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,18 @@
+﻿<Window x:Class="Vjezbe11_Zad6.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid Name="mojGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="97*"/>
+            <RowDefinition Height="420*"/>
+        </Grid.RowDefinitions>
+        <Button Name="btnDodaj" Grid.Row="0" Content="Dodaj" HorizontalAlignment="Left" Margin="40,10,0,0" VerticalAlignment="Top" Width="127" Height="40" Click="btnDodaj_Click"/>
+        <Button Name="btnUkloni" Grid.Row="0" Content="Ukloni" HorizontalAlignment="Left" Margin="200,10,0,0" VerticalAlignment="Top" Width="127" Height="40" Click="btnUkloni_Click"/>
+        
+        <Grid Grid.Row="1" Name="gridContainer">
+            
+        </Grid>
+        
+    </Grid>
+</Window>

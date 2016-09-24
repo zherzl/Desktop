@@ -1,0 +1,8 @@
+﻿<Window x:Class="Vjezbe11_Zad3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button Name="btnPrvi" Margin="0, 0, 10, 10" Content="Klikni" Width="70" Height="30" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Click="btnPrvi_Click"></Button>
+    </Grid>
+</Window>

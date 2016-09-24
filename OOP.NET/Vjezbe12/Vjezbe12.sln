@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vjezbe12_Z04", "Vjezbe12\Vjezbe12_Z04.csproj", "{122E9C0C-17AD-46CC-806E-D63329D99D2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vjezbe12_Z08", "Vjezbe12_Z08\Vjezbe12_Z08.csproj", "{88B03F2B-62C1-4852-8F48-67F945777F0A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{122E9C0C-17AD-46CC-806E-D63329D99D2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{122E9C0C-17AD-46CC-806E-D63329D99D2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{122E9C0C-17AD-46CC-806E-D63329D99D2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{122E9C0C-17AD-46CC-806E-D63329D99D2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88B03F2B-62C1-4852-8F48-67F945777F0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88B03F2B-62C1-4852-8F48-67F945777F0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88B03F2B-62C1-4852-8F48-67F945777F0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88B03F2B-62C1-4852-8F48-67F945777F0A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

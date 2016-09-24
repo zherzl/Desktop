@@ -1,0 +1,14 @@
+﻿<Window x:Class="Vjezbe11_Zad4a.Zadatak4"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Zadatak 4" Height="500" Width="300" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0, 0.5" EndPoint="1, 0.5">
+            <GradientStop Color="#FFFF0202" Offset="0" />
+            <GradientStop Color="Blue" Offset="1" />
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Button Content="Gumb" VerticalAlignment="Center" HorizontalAlignment="Center"></Button>
+    </Grid>
+</Window>

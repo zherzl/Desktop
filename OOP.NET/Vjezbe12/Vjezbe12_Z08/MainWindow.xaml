@@ -1,0 +1,25 @@
+﻿<Window x:Class="Vjezbe12_Z08.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="725" WindowStartupLocation="CenterScreen">
+    
+    
+    <Window.Resources>
+       
+        
+    </Window.Resources>
+    <StackPanel>
+        <Button x:Name="btnPrvi" MinHeight="100" MinWidth="300" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Gumb 1" 
+                Background="{StaticResource ResourceKey=mojBrush}" Click="btnPrvi_Click_1" />
+        
+        <Button x:Name="btnDrugi" MinHeight="100" MinWidth="600" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Gumb 2" 
+                Background="{StaticResource ResourceKey=mojBrush}" Click="btnPrvi_Click_1" />
+        
+        <Button x:Name="btnTreci" MinHeight="100" MinWidth="600" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Gumb 3" 
+                Background="{StaticResource ResourceKey=mojBrush}" Click="btnPrvi_Click_1" />
+        
+        
+
+    </StackPanel>
+    
+</Window>

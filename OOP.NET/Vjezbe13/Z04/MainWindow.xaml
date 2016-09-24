@@ -1,0 +1,42 @@
+﻿<Window x:Class="Z04.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <TabControl>
+            <TabItem >
+                <TabItem.Header>
+                    <TextBlock FontWeight="Bold" Text="Tab jedan" Height="30" />
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <Expander Header="Tekst jedan" Content="Ovo je neki tekst jedan" Margin="5" />
+                        <Expander Header="Tekst dva" Content="Ovo je neki tekst dva" Margin="5"/>
+                        <Expander Header="Tekst tri" Content="Ovo je neki tekst tri" Margin="5" />
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Header="Tab dva" Content="Ovo neki tekst">
+                
+            </TabItem>
+            
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Automobili"/>
+                        <Image Source="auto.png" Stretch="Fill" Width="80" />
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <WrapPanel Width="200" HorizontalAlignment="Left">
+                        <Label Width="100" >Prvi</Label>
+                        <Label Width="100" >Drugi</Label>
+                        <Label Width="100">Treci</Label>
+                        <Label Width="100">Cetvri</Label>
+                        <Label Width="100">Peti</Label>
+                    </WrapPanel>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

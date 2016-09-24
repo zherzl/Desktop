@@ -1,0 +1,28 @@
+﻿<Window x:Class="Z01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Row="0" Grid.Column="0" Content="Multi"/>
+        <Button Grid.Row="0" Grid.Column="3" Content="Prvi"/>
+        <Button Grid.Row="2" Grid.Column="3" Content="Drugi"/>
+        <Button Grid.Row="3" Grid.Column="2" Content="Treci"/>
+
+
+        <GridSplitter Grid.Row="0" Grid.Column="1" Grid.RowSpan="5" Background="Black" Width="5"/>
+        <GridSplitter Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="5"  Background="Black" Width="5"/>
+    </Grid>
+</Window>

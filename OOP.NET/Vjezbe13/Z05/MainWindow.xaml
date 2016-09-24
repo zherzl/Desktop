@@ -1,0 +1,36 @@
+﻿<Window x:Class="Z05.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Button Grid.RowSpan="2">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF003F63" Offset="0"/>
+                    <GradientStop Color="White" Offset="0.502"/>
+                    <GradientStop Color="#FF0091E4" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+
+            <Button.ToolTip>
+                <Grid Width="300">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="3*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Background="LightBlue" Foreground="Black">Tooltip na botunu</TextBlock>
+                    <TextBlock Grid.Row="1" Background="White" Foreground="Black" TextWrapping="Wrap" > Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</TextBlock>
+                    <TextBlock Grid.Row="2" Height="4" Background="Black" Margin="0,5,0,0" />
+
+                    <StackPanel Grid.Row="3" Orientation="Horizontal">
+                        <Image Source="upitnik.png" Width="60"></Image>
+                        <TextBlock VerticalAlignment="Center" Grid.Row="2" FontSize="20">Pritisni F1 za više detalja</TextBlock>
+                    </StackPanel>
+                    
+                </Grid>
+            </Button.ToolTip>
+        </Button>
+    </Grid>
+</Window>

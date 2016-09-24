@@ -1,0 +1,42 @@
+﻿<Window x:Class="Vjezbe11_Zad5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Button Grid.Row="0" Width="150" Height="200" HorizontalAlignment="Left" Name="btnGumbic">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Name="slika1" Source="d:\Sharp\Box Sync\Algebra\S4\OOP.NET Praktikum\MI3\RVS15-OOPNET-Vjezba-11\Gnome-Face-Smirk-64.png" Width="40" />
+                <TextBlock Grid.Row="1" Text="Ovo je tekst izmedu dvije slike" />
+                <Image Grid.Row="2" Name="slika2" Source="d:\Sharp\Box Sync\Algebra\S4\OOP.NET Praktikum\MI3\RVS15-OOPNET-Vjezba-11\Gnome-Face-Smirk-64.png" Width="40" />
+            </Grid>
+
+            <Button.LayoutTransform>
+                <RotateTransform Angle="-45"></RotateTransform>
+            </Button.LayoutTransform>
+        </Button>
+
+        <TextBox Grid.Row="1" Text="Mirko">
+            <TextBox.LayoutTransform>
+                <RotateTransform Angle="33"/>
+            </TextBox.LayoutTransform>
+        </TextBox>
+
+        <Label Grid.Row="2" Content="Mirko">
+            <Label.LayoutTransform>
+                <RotateTransform Angle="-25"/>
+            </Label.LayoutTransform>
+        </Label>
+
+    </Grid>
+</Window>

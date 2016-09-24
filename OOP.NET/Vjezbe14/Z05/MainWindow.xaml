@@ -1,0 +1,50 @@
+﻿<Window x:Class="Z05.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <ControlTemplate TargetType="ListBoxItem" x:Key="mojTemplate">
+
+            <Grid>
+
+                <Ellipse x:Name="mojaElipsa" StrokeThickness="2">
+                    <Ellipse.Stroke >
+                        <SolidColorBrush Color="Orange" x:Name="scb"/>
+                    </Ellipse.Stroke>
+
+                </Ellipse>
+                <ContentPresenter HorizontalAlignment="Center" 
+                                  VerticalAlignment="Center"/>
+            </Grid>
+
+            <ControlTemplate.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard >
+                            <ColorAnimation To="Green" Duration="0:0:0.500" Storyboard.TargetName="scb" Storyboard.TargetProperty="Color" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </ControlTemplate.Triggers>
+
+        </ControlTemplate>
+
+
+        <Style TargetType="ListBoxItem">
+            <Setter Property="Template" Value="{StaticResource ResourceKey=mojTemplate}"/>
+            <Setter Property="Height" Value="50" />
+        </Style>
+
+    </Window.Resources>
+    <Grid>
+        <ListBox>
+            <ListBox.Items>
+                <ListBoxItem>Moj item</ListBoxItem>
+                <ListBoxItem>Moj item</ListBoxItem>
+                <ListBoxItem>Moj item</ListBoxItem>
+                <ListBoxItem>Moj item</ListBoxItem>
+                <ListBoxItem>Moj item</ListBoxItem>
+            </ListBox.Items>
+        </ListBox>
+    </Grid>
+</Window>

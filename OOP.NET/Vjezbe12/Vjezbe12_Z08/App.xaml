@@ -1,0 +1,21 @@
+﻿<Application x:Class="Vjezbe12_Z08.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <RadialGradientBrush x:Key="mojBrush">
+            <GradientStop Offset="0" Color="Green" />
+            <GradientStop Offset="1" Color="Lime" />
+        </RadialGradientBrush>
+
+
+        <RadialGradientBrush x:Key="mojAltBrush">
+            <GradientStop Offset="0" Color="Red" />
+            <GradientStop Offset="1" Color="Orange" />
+        </RadialGradientBrush>
+
+
+    
+    </Application.Resources>
+</Application>

@@ -1,0 +1,16 @@
+﻿<Window x:Class="Z02.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Slider Name="slider" Grid.Row="4" Minimum="1" Maximum="55000" Value="50" TickFrequency="0.1" IsSnapToTickEnabled="True" />
+        
+        <Label Name="lblNesto" Width="Auto" Content="{Binding ElementName=slider, Path=Value, Mode=TwoWay}" Margin="212,74,265,152"/>
+        
+        <Button Content="Gumb" HorizontalAlignment="Left" Margin="31,74,0,0" VerticalAlignment="Top" 
+                Width="107" RenderTransformOrigin="0.019,-1.85" Click="Button_Click"></Button>
+        
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="31,115,0,0" TextWrapping="Wrap" Text="{Binding ElementName=slider, Path=Value}" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</Window>
