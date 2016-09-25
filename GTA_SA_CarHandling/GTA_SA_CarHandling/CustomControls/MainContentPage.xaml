@@ -1,0 +1,256 @@
+﻿<Page x:Class="GTA_SA_CarHandling.CustomControls.MainContentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GTA_SA_CarHandling.CustomControls"
+      mc:Ignorable="d" 
+      d:DesignHeight="350" d:DesignWidth="800"
+      Title="MainContentPage">
+    <Page.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="8" />
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+        </Style>
+        <Style x:Key="labelBold" TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="10" />
+        </Style>
+        <Style x:Key="BorderStyle1" TargetType="{x:Type Border}">
+            <Setter Property="Background" Value="#4C6CD0FF" />
+            <Setter Property="CornerRadius" Value="3,3,3,3" />
+            <Setter Property="BorderThickness" Value="0.5, 0.5, 0.5, 0.5" />
+        </Style>
+        
+        <Style x:Key="BorderStyle2" TargetType="{x:Type Border}">
+            <Setter Property="Background" Value="#FF5F5F5F" />
+            <Setter Property="CornerRadius" Value="3,3,3,3" />
+            <Setter Property="BorderThickness" Value="0.5, 0.5, 0.5, 0.5" />
+            <Style.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="Foreground" Value="AliceBlue"/>
+                    <Setter Property="FontSize" Value="9"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+        
+    </Page.Resources>
+    <!--Main grid-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="126*"/>
+            <ColumnDefinition Width="205*"/>
+            <ColumnDefinition Width="175*"/>
+            <ColumnDefinition Width="169*"/>
+            <ColumnDefinition Width="125*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Search" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox x:Name="txtSearch" Grid.Row="1" Background="#261AD5FF" BorderThickness="0,2"  >
+                <TextBox.BorderBrush>
+                    <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
+                        <GradientStop Color="#FFABADB3" Offset="0.05"/>
+                        <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.BorderBrush>
+            </TextBox>
+        </Grid>
+
+
+        <!--Headers-->
+        <Border Grid.Row="0" Grid.Column="1"  Style="{DynamicResource BorderStyle1}" />
+        <Label Content="General" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource labelBold}"  />
+        <Border Grid.Row="0" Grid.Column="2"  Style="{DynamicResource BorderStyle1}"/>
+        <Label Content="Engine and breaking" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource labelBold}"  />
+        <Border Grid.Row="0" Grid.Column="3"  Style="{DynamicResource BorderStyle1}"/>
+        <Label Content="Suspension" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource labelBold}"  />
+        <Border Grid.Row="0" Grid.Column="4"  Style="{DynamicResource BorderStyle1}" />
+        <Label Content="Wheels" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource labelBold}" />
+
+        <!--General data-->
+        <Border Grid.Row="1" Grid.Column="1" Style="{DynamicResource BorderStyle2}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!--General Labels-->
+                <Label Content="Vehicle name:" Grid.Row="0"  />
+                <Label Content="Mass:" Grid.Row="1" />
+                <Label Content="Turn mass:" Grid.Row="2"  />
+                <Label Content="Drag multiplier:" Grid.Row="3"  />
+                <Label Content="Center of mass (x):" Grid.Row="4"  />
+                <Label Content="Center of mass (y):" Grid.Row="5" />
+                <Label Content="Center of mass (z):" Grid.Row="6"  />
+                <Label Content="Percent submerged:" Grid.Row="7"  />
+                <Label Content="Collision damage multiplier:" Grid.Row="8"  />
+                <Label Content="Monetary value:" Grid.Row="9"  />
+                <Label Content="Model flags:" Grid.Row="10"  />
+                <Label Content="Handling flags:" Grid.Row="11" />
+                <!--General Text boxes-->
+                <TextBox x:Name="txtVehicleName" Grid.Row="0" Grid.Column="1" />
+                <TextBox x:Name="txtMass" Grid.Row="1" Grid.Column="1" />
+                <TextBox x:Name="txtTurnMass" Grid.Row="2" Grid.Column="1" />
+                <TextBox x:Name="txtDragMultiplier" Grid.Row="3" Grid.Column="1" />
+                <TextBox x:Name="txtCenterMassX" Grid.Row="4" Grid.Column="1" />
+                <TextBox x:Name="txtCenterMassY" Grid.Row="5" Grid.Column="1" />
+                <TextBox x:Name="txtCenterMassZ" Grid.Row="6" Grid.Column="1" />
+                <TextBox x:Name="txtPercentSubmerged" Grid.Row="7" Grid.Column="1" />
+                <TextBox x:Name="txtCollisionMultiplier" Grid.Row="8" Grid.Column="1" />
+                <TextBox x:Name="txtMonetaryValue" Grid.Row="9" Grid.Column="1" />
+                <TextBox x:Name="txtModelFlags" Grid.Row="10" Grid.Column="1" />
+                <TextBox x:Name="txtHandlingFlags" Grid.Row="11" Grid.Column="1" />
+            </Grid>
+        </Border>
+
+        <!--Engine and breaking-->
+        <Border Grid.Row="1" Grid.Column="2" Style="{DynamicResource BorderStyle2}" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!--Engine and braking Labels-->
+                <Label Content="Number of gears:" Grid.Row="0" />
+                <Label Content="Max velocity:" Grid.Row="1" />
+                <Label Content="Acceleration:" Grid.Row="2" />
+                <Label Content="Engine inertia:" Grid.Row="3" />
+                <Label Content="Drive type:" Grid.Row="4" />
+                <Label Content="Engine type:" Grid.Row="5" />
+                <Label Content="Brake power:" Grid.Row="6" />
+                <Label Content="Brake bias:" Grid.Row="7" />
+                <Label Content="Steering lock:" Grid.Row="8" />
+                <!--Engine and braking Text boxes-->
+                <TextBox x:Name="txtNumberOfGers" Grid.Row="0" Grid.Column="1" />
+                <TextBox x:Name="txtMaxVelocity" Grid.Row="1" Grid.Column="1" />
+                <TextBox x:Name="txtEngineAcc" Grid.Row="2" Grid.Column="1" />
+                <TextBox x:Name="txtInertia" Grid.Row="3" Grid.Column="1" />
+                <TextBox x:Name="txtDriveType" Grid.Row="4" Grid.Column="1" />
+                <TextBox x:Name="txtEngineType" Grid.Row="5" Grid.Column="1" />
+                <TextBox x:Name="txtBrakePower" Grid.Row="6" Grid.Column="1" />
+                <TextBox x:Name="txtBrakeBias" Grid.Row="7" Grid.Column="1" />
+                <TextBox x:Name="txtSteeringLock" Grid.Row="8" Grid.Column="1" />
+            </Grid>
+        </Border>
+
+        <!--Suspension-->
+        <Border Grid.Row="1" Grid.Column="3" Style="{DynamicResource BorderStyle2}" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!--Suspension Labels-->
+                <Label Content="Force level:" Grid.Row="0" />
+                <Label Content="Damping level:" Grid.Row="1" />
+                <Label Content="Hispeed comdamp:" Grid.Row="2" />
+                <Label Content="Upper limit:" Grid.Row="3" />
+                <Label Content="Lower limit:" Grid.Row="4" />
+                <Label Content="Bias between front/rear:" Grid.Row="5" />
+                <Label Content="Anti drive multiplier:" Grid.Row="6" />
+                <Label Content="Traction multiplier:" Grid.Row="7" />
+                <Label Content="Traction loss:" Grid.Row="8" />
+                <Label Content="Traction bias:" Grid.Row="9" />
+                <!--Suspension Text boxes-->
+                <TextBox x:Name="txtForceLevel" Grid.Row="0" Grid.Column="1" />
+                <TextBox x:Name="txtDampingLevel" Grid.Row="1" Grid.Column="1" />
+                <TextBox x:Name="txtHispeedComdamp" Grid.Row="2" Grid.Column="1" />
+                <TextBox x:Name="txtUpperLimit" Grid.Row="3" Grid.Column="1" />
+                <TextBox x:Name="txtLowerLimit" Grid.Row="4" Grid.Column="1" />
+                <TextBox x:Name="txtBiasBetween" Grid.Row="5" Grid.Column="1" />
+                <TextBox x:Name="txtAntiDriveMultiply" Grid.Row="6" Grid.Column="1" />
+                <TextBox x:Name="txtTractionMultiply" Grid.Row="7" Grid.Column="1" />
+                <TextBox x:Name="txtTractionLoss" Grid.Row="8" Grid.Column="1" />
+                <TextBox x:Name="txtTractionBias" Grid.Row="9" Grid.Column="1" />
+            </Grid>
+        </Border>
+        
+        <!--Wheels-->
+        <Border Grid.Row="1" Grid.Column="4" Style="{DynamicResource BorderStyle2}" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!--Wheels Labels-->
+                <Label Content="Front lights:" Grid.Row="0" />
+                <Label Content="Rear lightw:" Grid.Row="1" />
+                <Label Content="Vehicle anim group:" Grid.Row="2" />
+                <!--Wheels Text boxes-->
+                <TextBox x:Name="txtFrontLights" Grid.Row="0" Grid.Column="1" />
+                <TextBox x:Name="txtRearLight" Grid.Row="1" Grid.Column="1" />
+                <TextBox x:Name="txtVehicleAnimGr" Grid.Row="2" Grid.Column="1" />
+
+            </Grid>
+        </Border>
+
+        <ListBox x:Name="lboxCarList" Grid.Row="1">
+            <ListBoxItem>
+                <ListBoxItem.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFB0B0B0" Offset="0"/>
+                        <GradientStop Color="White" Offset="0.513"/>
+                        <GradientStop Color="#FFB0B0B0" Offset="1"/>
+                        <GradientStop Color="#FFCECECE" Offset="0.114"/>
+                        <GradientStop Color="LightGray" Offset="0.893"/>
+                    </LinearGradientBrush>
+                </ListBoxItem.Background> asdadasdas</ListBoxItem>
+        </ListBox>
+        
+
+
+    </Grid>
+</Page>

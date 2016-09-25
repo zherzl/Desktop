@@ -1,0 +1,26 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GTA_SA_CarHandling"
+        xmlns:CustomControls="clr-namespace:GTA_SA_CarHandling.CustomControls" x:Class="GTA_SA_CarHandling.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="1036.958" MinWidth="1030" MinHeight="450">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="508*"/>
+            <ColumnDefinition Width="521*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="92*"/>
+            <RowDefinition Height="13*"/>
+        </Grid.RowDefinitions>
+        <CustomControls:MainContentControl Grid.Row="0" Grid.ColumnSpan="2" />
+        <Button x:Name="btnLoad" Grid.Row="1" Background="#FF004080" FontSize="16" Grid.Column="0" Foreground="White" Click="btnLoad_Click" Margin="0,0,257,0">Load</Button>
+        <Button x:Name="btnSave" Grid.Row="1" Background="#FFAA2F00" FontSize="16" Foreground="White" Margin="251,0,0,0" Click="btnSave_Click" Content="Save handling.cfg"/>
+        <TextBlock x:Name="lblInfo" Foreground="Red" FontSize="13" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"></TextBlock>
+    </Grid>
+
+</Window>
