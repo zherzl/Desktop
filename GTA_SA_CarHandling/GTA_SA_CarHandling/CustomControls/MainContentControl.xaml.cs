@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GTA_SA_CarHandling.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GTA_SA_CarHandling.Model;
 
 namespace GTA_SA_CarHandling.CustomControls
 {
@@ -20,9 +22,27 @@ namespace GTA_SA_CarHandling.CustomControls
     /// </summary>
     public partial class MainContentControl : UserControl
     {
-        public MainContentControl()
+        private IView view;
+        private List<VehicleViewModel> vm;
+
+        public MainContentControl(IView view)
         {
             InitializeComponent();
+            this.view = view;
+            this.vm = view.VehiclesList().OrderBy(x => x.AVehicleIdentifier).ToList();
+            MainGrid.DataContext = vm;
+            txtSearch.TextChanged += TxtSearch_TextChanged;
         }
+        
+        
+
+        private void TxtSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            lboxCarList.SelectedItem = vm.FirstOrDefault(x => x.AVehicleIdentifier.ToLower().StartsWith(txtSearch.Text.ToLower()));
+        }
+
+        
+
+        
     }
 }

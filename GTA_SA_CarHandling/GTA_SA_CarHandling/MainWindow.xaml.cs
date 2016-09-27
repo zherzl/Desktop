@@ -1,4 +1,7 @@
-﻿using GTA_SA_CarHandling.Interfaces;
+﻿using GTA_SA_CarHandling.CustomControls;
+using GTA_SA_CarHandling.Interfaces;
+using GTA_SA_CarHandling.Model;
+using GTA_SA_CarHandling.ModelClass;
 using GTA_SA_CarHandling.Text;
 using Microsoft.Win32;
 using System;
@@ -25,25 +28,61 @@ namespace GTA_SA_CarHandling
     /// </summary>
     public partial class MainWindow : Window, IView
     {
-        public string Configuration { get; set; }
-        ReadResource resourceRdr;
+        StringParser sp;
+        ResourceBuilder resourceRdr;
+        private string HandlingString { get; set; }
+        private List<string> FileRows { get; set; }
+        public List<VehicleViewModel> vm { get; set; }
+
 
         public MainWindow()
         {
             InitializeComponent();
-            resourceRdr = new ReadResource(this);
-            Configuration = resourceRdr.LoadConfig();
+            sp = new StringParser();
+            vm = new List<VehicleViewModel>();
+            FileRows = new List<string>();
+            resourceRdr = new ResourceBuilder(this);
+            HandlingString = resourceRdr.LoadConfig();
+            LoadFileRows();
+
+            
         }
 
-       
+    
+
+        private void LoadFileRows()
+        {
+            try
+            {
+                FileRows = sp.StartParsing(HandlingString);
+                GetParsedViewModel();
+            }
+            catch (Exception ex)
+            {
+                SetInfo(ex.Message);
+            }
+        }
+
+
+        void GetParsedViewModel()
+        {
+            List<Vehicle> vehicles = sp.ParseVehicleRows(FileRows);
+            vm = VehiclesViewModel.GetVehicles(vehicles);
+            
+            MainContentControl vehicleControl = new MainContentControl(this);
+            Grid.SetRow(vehicleControl, 0);
+            Grid.SetColumnSpan(vehicleControl, 3);
+            MainGrid.Children.Add(vehicleControl);
+        }
 
         private void btnLoad_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 SetInfo(null);
-                SetInfo(ReadResource.GetOriginalFileContent());
-            } 
+                HandlingString = resourceRdr.GetFileName(null);
+                LoadFileRows();
+            }
             catch (Exception ex)
             {
                 SetInfo(ex.Message);
@@ -55,13 +94,16 @@ namespace GTA_SA_CarHandling
             SetInfo(null);
         }
 
-        
+
 
         public void SetInfo(string message)
         {
             lblInfo.Text = message;
         }
 
-        
+        public List<VehicleViewModel> VehiclesList()
+        {
+            return this.vm;
+        }
     }
 }

@@ -8,19 +8,21 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="1036.958" MinWidth="1030" MinHeight="450">
 
-    <Grid>
+    <Grid Name="MainGrid">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="508*"/>
+            <ColumnDefinition Width="246*"/>
+            <ColumnDefinition Width="262*"/>
             <ColumnDefinition Width="521*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="92*"/>
             <RowDefinition Height="13*"/>
         </Grid.RowDefinitions>
-        <CustomControls:MainContentControl Grid.Row="0" Grid.ColumnSpan="2" />
-        <Button x:Name="btnLoad" Grid.Row="1" Background="#FF004080" FontSize="16" Grid.Column="0" Foreground="White" Click="btnLoad_Click" Margin="0,0,257,0">Load</Button>
-        <Button x:Name="btnSave" Grid.Row="1" Background="#FFAA2F00" FontSize="16" Foreground="White" Margin="251,0,0,0" Click="btnSave_Click" Content="Save handling.cfg"/>
-        <TextBlock x:Name="lblInfo" Foreground="Red" FontSize="13" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"></TextBlock>
+        <!--<CustomControls:MainContentControl Grid.Row="0" Grid.ColumnSpan="2" />-->
+        <Button x:Name="btnLoad" Grid.Row="1" Background="#FF004080" FontSize="16" Grid.Column="0" Foreground="White" Click="btnLoad_Click" >Load</Button>
+        <Button x:Name="btnSave" Grid.Row="1" Background="#FFAA2F00" FontSize="16" Grid.Column="1" Foreground="White" Click="btnSave_Click" Content="Save handling.cfg" />
+        <TextBlock x:Name="lblInfo" Foreground="Red" FontSize="13" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" ></TextBlock>
+        
     </Grid>
 
 </Window>

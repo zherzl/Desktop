@@ -56,7 +56,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Interfaces\IView.cs" />
+    <Compile Include="Model\Description.cs" />
+    <Compile Include="Model\Vehicle.cs" />
+    <Compile Include="Model\VehicleViewModel.cs" />
     <Compile Include="Text\ReadResource.cs" />
+    <Compile Include="Text\StringParser.cs" />
     <Page Include="CustomControls\MainContentControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

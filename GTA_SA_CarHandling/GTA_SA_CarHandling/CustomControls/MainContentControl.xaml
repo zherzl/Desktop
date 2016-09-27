@@ -40,7 +40,7 @@
     </Control.Resources>
 
     <!--Main grid-->
-    <Grid>
+    <Grid Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="39*"/>
             <RowDefinition Height="311*"/>
@@ -59,7 +59,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Normal" FontSize="8" Height="15" >Search</TextBlock>
-            <TextBox x:Name="txtSearch" Background="#261AD5FF" BorderThickness="0,2"  Grid.RowSpan="2" VerticalAlignment="Bottom" >
+            <TextBox x:Name="txtSearch" Background="#261AD5FF" BorderThickness="0,2"  Grid.RowSpan="2" VerticalAlignment="Bottom"  >
                 <TextBox.BorderBrush>
                     <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
                         <GradientStop Color="#FFABADB3" Offset="0.05"/>
@@ -103,31 +103,31 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <!--General Labels-->
-                <Label Content="Vehicle name:" Grid.Row="0" Height="26" Width="84"  />
-                <Label Content="Mass:" Grid.Row="1" Height="26" Width="40" />
-                <Label Content="Turn mass:" Grid.Row="2" Height="26" Width="67"  />
-                <Label Content="Drag multiplier:" Grid.Row="3" Height="26" Width="92"  />
-                <Label Content="Center of mass (x):" Grid.Row="4" Height="26" Width="108"  />
-                <Label Content="Center of mass (y):" Grid.Row="5" Height="26" Width="108" />
-                <Label Content="Center of mass (z):" Grid.Row="6" Height="26" Width="108"  />
-                <Label Content="Percent submerged:" Grid.Row="7" Height="26" Width="116"  />
-                <Label Content="Collision damage multiplier:" Grid.Row="8" Height="26" Width="157"  />
-                <Label Content="Monetary value:" Grid.Row="9" Height="26" Width="95"  />
-                <Label Content="Model flags:" Grid.Row="10" Height="26" Width="75"  />
-                <Label Content="Handling flags:" Grid.Row="11" Height="26" Width="89" />
+                <Label Content="Vehicle name" Grid.Row="0"  />
+                <Label Content="Mass:" Grid.Row="1" />
+                <Label Content="Turn mass:" Grid.Row="2" />
+                <Label Content="Drag multiplier:" Grid.Row="3"   />
+                <Label Content="Center of mass (x)" Grid.Row="4"  />
+                <Label Content="Center of mass (y)" Grid.Row="5" />
+                <Label Content="Center of mass (z)" Grid.Row="6"  />
+                <Label Content="Percent submerged:" Grid.Row="7"  />
+                <Label Content="Collision damage multiplier:" Grid.Row="8"  />
+                <Label Content="Monetary value:" Grid.Row="9"  />
+                <Label Content="Model flags:" Grid.Row="10"  />
+                <Label Content="Handling flags:" Grid.Row="11" />
                 <!--General Text boxes-->
-                <TextBox x:Name="txtVehicleName" Grid.Row="0" Grid.Column="1" />
-                <TextBox x:Name="txtMass" Grid.Row="1" Grid.Column="1" />
-                <TextBox x:Name="txtTurnMass" Grid.Row="2" Grid.Column="1" />
-                <TextBox x:Name="txtDragMultiplier" Grid.Row="3" Grid.Column="1" />
-                <TextBox x:Name="txtCenterMassX" Grid.Row="4" Grid.Column="1" />
-                <TextBox x:Name="txtCenterMassY" Grid.Row="5" Grid.Column="1" />
-                <TextBox x:Name="txtCenterMassZ" Grid.Row="6" Grid.Column="1" />
-                <TextBox x:Name="txtPercentSubmerged" Grid.Row="7" Grid.Column="1" />
-                <TextBox x:Name="txtCollisionMultiplier" Grid.Row="8" Grid.Column="1" />
-                <TextBox x:Name="txtMonetaryValue" Grid.Row="9" Grid.Column="1" />
-                <TextBox x:Name="txtModelFlags" Grid.Row="10" Grid.Column="1" />
-                <TextBox x:Name="txtHandlingFlags" Grid.Row="11" Grid.Column="1" />
+                <TextBox x:Name="txtVehicleName" Grid.Row="0" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.AVehicleIdentifier}" />
+                <TextBox x:Name="txtMass" Grid.Row="1" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GMass}" />
+                <TextBox x:Name="txtTurnMass" Grid.Row="2" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GTurnMass}" />
+                <TextBox x:Name="txtDragMultiplier" Grid.Row="3" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.DragMultiplier}" />
+                <TextBox x:Name="txtCenterMassX" Grid.Row="4" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GCenterOfMassX}" />
+                <TextBox x:Name="txtCenterMassY" Grid.Row="5" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GCenterOfMassY}" />
+                <TextBox x:Name="txtCenterMassZ" Grid.Row="6" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GCenterOfMassZ}" />
+                <TextBox x:Name="txtPercentSubmerged" Grid.Row="7" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GPercentSubmerged}" />
+                <TextBox x:Name="txtCollisionMultiplier" Grid.Row="8" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GCollisionMultiplier}" />
+                <TextBox x:Name="txtMonetaryValue" Grid.Row="9" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GMonetaryValue}" />
+                <TextBox x:Name="txtModelFlags" Grid.Row="10" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GModelFlags}" />
+                <TextBox x:Name="txtHandlingFlags" Grid.Row="11" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GHandlingFlags}" />
             </Grid>
         </Border>
 
@@ -150,15 +150,15 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <!--Engine and braking Labels-->
-                <Label Content="Number of gears:" Grid.Row="0" Height="26" Width="102" />
-                <Label Content="Max velocity:" Grid.Row="1" Height="26" Width="79" />
-                <Label Content="Acceleration:" Grid.Row="2" Height="26" Width="78" />
-                <Label Content="Engine inertia:" Grid.Row="3" Height="26" Width="85" />
-                <Label Content="Drive type:" Grid.Row="4" Height="26" Width="67" />
-                <Label Content="Engine type:" Grid.Row="5" Height="26" Width="75" />
-                <Label Content="Brake power:" Grid.Row="6" Height="26" Width="78" />
-                <Label Content="Brake bias:" Grid.Row="7" Height="26" Width="66" />
-                <Label Content="Steering lock:" Grid.Row="8" Height="26" Width="81" />
+                <Label Content="Number of gears:" Grid.Row="0" />
+                <Label Content="Max velocity:" Grid.Row="1"  />
+                <Label Content="Acceleration:" Grid.Row="2"  />
+                <Label Content="Engine inertia:" Grid.Row="3"  />
+                <Label Content="Drive type:" Grid.Row="4"  />
+                <Label Content="Engine type:" Grid.Row="5"  />
+                <Label Content="Brake power:" Grid.Row="6"  />
+                <Label Content="Brake bias:" Grid.Row="7"  />
+                <Label Content="Steering lock:" Grid.Row="8"  />
                 <!--Engine and braking Text boxes-->
                 <TextBox x:Name="txtNumberOfGers" Grid.Row="0" Grid.Column="1" />
                 <TextBox x:Name="txtMaxVelocity" Grid.Row="1" Grid.Column="1" />
@@ -242,8 +242,14 @@
             </Grid>
         </Border>
 
-        <ListBox x:Name="lboxCarList" Grid.Row="1" >
-
+        <ListBox x:Name="lboxCarList" Grid.Row="1" ItemsSource="{Binding}" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid >
+                        <TextBlock Text="{Binding Path=AVehicleIdentifier}" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
 
 

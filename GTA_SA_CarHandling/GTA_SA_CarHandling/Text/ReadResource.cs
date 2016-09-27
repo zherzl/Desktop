@@ -10,13 +10,14 @@ using System.Threading.Tasks;
 
 namespace GTA_SA_CarHandling.Text
 {
-    public class ReadResource
+    public class ResourceBuilder
     {
-        public string ConfigName { get { return "GtaSa_HandlingConfig.ini"; } }
-        public string LastLoadedFile { get; set; }
+        private string ConfigName { get { return "GtaSa_HandlingConfig.ini"; } }
+        private string LastLoadedFile { get; set; }
+
         IView view;
 
-        public ReadResource(IView view)
+        public ResourceBuilder(IView view)
         {
             this.view = view;
         }
@@ -37,35 +38,47 @@ namespace GTA_SA_CarHandling.Text
         }
 
 
+        /// <summary>
+        /// If config file exists in app folder, it will also try to load last known file path written in config
+        /// </summary>
+        /// <returns></returns>
         public string LoadConfig()
         {
             string file = Directory.GetCurrentDirectory() + ConfigName;
-            string entireFile = null;
 
             if (File.Exists(file))
             {
                 LastLoadedFile = File.ReadAllText(file);
-                entireFile = GetTextFromFile(LastLoadedFile);
+                return LastLoadedFile;
             }
 
-            return entireFile;
+            return null;
         }
 
-
-        private string GetTextFromFile(string fileName)
+        private void WriteConfig(string fileName)
         {
-            string entireFile = null;
+            File.WriteAllText(Directory.GetCurrentDirectory() + ConfigName, fileName);
+        }
+
+        /// <summary>
+        /// Pass null to load from Open file dialog
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        public string GetFileName(string fileName)
+        {
+            string handlingFile = null;
 
             try
             {
                 if (string.IsNullOrEmpty(fileName))
                 {
-                    entireFile = LoadFromDialog();
+                    LoadFromDialog(ref handlingFile);
                     view.SetInfo("File loaded from dialog");
                 }
                 else
                 {
-                    entireFile = File.ReadAllText(fileName);
+                    handlingFile = File.ReadAllText(fileName);
                     view.SetInfo("File automatically loaded from " + fileName);
                 }
             }
@@ -74,28 +87,22 @@ namespace GTA_SA_CarHandling.Text
                 view.SetInfo(ex.Message);
             }
 
-            return entireFile;
+            return handlingFile;
         }
 
 
-        private string LoadFromDialog()
+        private void LoadFromDialog(ref string handlingFile)
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "CFG files (*.cfg)|*.cfg";
-            string entireFile = null;
 
             if (ofd.ShowDialog() != null)
             {
-                entireFile = File.ReadAllText(ofd.FileName);
+                handlingFile = ofd.FileName;
                 WriteConfig(ofd.FileName);
             }
-
-            return entireFile;
         }
 
-        private void WriteConfig(string fileName)
-        {
-            File.WriteAllText(Directory.GetCurrentDirectory() + ConfigName, fileName);
-        }
+        
     }
 }
