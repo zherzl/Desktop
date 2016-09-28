@@ -38,7 +38,8 @@ namespace GTA_SA_CarHandling.CustomControls
 
         private void TxtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            lboxCarList.SelectedItem = vm.FirstOrDefault(x => x.AVehicleIdentifier.ToLower().StartsWith(txtSearch.Text.ToLower()));
+            //lboxCarList.SelectedItem = vm.FirstOrDefault(x => x.AVehicleIdentifier.ToLower().StartsWith(txtSearch.Text.ToLower()));
+            lboxCarList.ItemsSource = vm.Where(x => x.AVehicleIdentifier.ToLower().StartsWith(txtSearch.Text.ToLower()));
         }
 
         

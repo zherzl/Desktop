@@ -11,6 +11,7 @@
         <Style TargetType="Label">
             <Setter Property="FontSize" Value="8" />
             <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center" />
         </Style>
         <!--Header bold labels-->
         <Style x:Key="labelBold" TargetType="Label">
@@ -42,7 +43,7 @@
     <!--Main grid-->
     <Grid Name="MainGrid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="39*"/>
+            <RowDefinition Height="47*"/>
             <RowDefinition Height="311*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -55,11 +56,11 @@
 
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Normal" FontSize="8" Height="15" >Search</TextBlock>
-            <TextBox x:Name="txtSearch" Background="#261AD5FF" BorderThickness="0,2"  Grid.RowSpan="2" VerticalAlignment="Bottom"  >
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Normal" FontSize="16" >↓ Search ↓</TextBlock>
+            <TextBox x:Name="txtSearch" Background="#261AD5FF"  Grid.RowSpan="2" VerticalAlignment="Bottom"  >
                 <TextBox.BorderBrush>
                     <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
                         <GradientStop Color="#FFABADB3" Offset="0.05"/>
@@ -72,14 +73,14 @@
 
 
         <!--Headers-->
-        <Border Grid.Row="0" Grid.Column="1"  Style="{DynamicResource BorderStyle1}" />
-        <Label Content="General" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource labelBold}" Height="26" Width="54"  />
-        <Border Grid.Row="0" Grid.Column="2"  Style="{DynamicResource BorderStyle1}"/>
-        <Label Content="Engine and breaking" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource labelBold}" Height="26"   />
-        <Border Grid.Row="0" Grid.Column="3"  Style="{DynamicResource BorderStyle1}"/>
-        <Label Content="Suspension" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource labelBold}" Height="26"   />
-        <Border Grid.Row="0" Grid.Column="4"  Style="{DynamicResource BorderStyle1}" />
-        <Label Content="Wheels" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource labelBold}" Height="26"  />
+        <Border Grid.Row="0" Grid.Column="1"  Style="{DynamicResource BorderStyle1}" Background="#4C1E90C5" />
+        <Label Content="General" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource labelBold}"  />
+        <Border Grid.Row="0" Grid.Column="2"  Style="{DynamicResource BorderStyle1}" Background="#4C1E90C5" />
+        <Label Content="Engine and breaking" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource labelBold}"   />
+        <Border Grid.Row="0" Grid.Column="3"  Style="{DynamicResource BorderStyle1}" Background="#4C1E90C5" />
+        <Label Content="Suspension" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource labelBold}"    />
+        <Border Grid.Row="0" Grid.Column="4"  Style="{DynamicResource BorderStyle1}" Background="#4C1E90C5" />
+        <Label Content="Wheels" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource labelBold}" />
 
         <!--General data-->
         <Border Grid.Row="1" Grid.Column="1" Style="{DynamicResource BorderStyle2}" >
@@ -117,14 +118,14 @@
                 <Label Content="Handling flags:" Grid.Row="11" />
                 <!--General Text boxes-->
                 <TextBox x:Name="txtVehicleName" Grid.Row="0" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.AVehicleIdentifier}" />
-                <TextBox x:Name="txtMass" Grid.Row="1" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GMass}" />
-                <TextBox x:Name="txtTurnMass" Grid.Row="2" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GTurnMass}" />
-                <TextBox x:Name="txtDragMultiplier" Grid.Row="3" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.DragMultiplier}" />
-                <TextBox x:Name="txtCenterMassX" Grid.Row="4" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GCenterOfMassX}" />
-                <TextBox x:Name="txtCenterMassY" Grid.Row="5" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GCenterOfMassY}" />
-                <TextBox x:Name="txtCenterMassZ" Grid.Row="6" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GCenterOfMassZ}" />
+                <TextBox x:Name="txtMass" Grid.Row="1" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GMass, StringFormat={}{0:#0.0} }" />
+                <TextBox x:Name="txtTurnMass" Grid.Row="2" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GTurnMass, StringFormat={}{0:#0.0}}" />
+                <TextBox x:Name="txtDragMultiplier" Grid.Row="3" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.DragMultiplier, StringFormat={}{0:#0.0}}" />
+                <TextBox x:Name="txtCenterMassX" Grid.Row="4" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GCenterOfMassX, StringFormat={}{0:#0.0}}" />
+                <TextBox x:Name="txtCenterMassY" Grid.Row="5" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GCenterOfMassY, StringFormat={}{0:#0.0}}" />
+                <TextBox x:Name="txtCenterMassZ" Grid.Row="6" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GCenterOfMassZ, StringFormat={}{0:#0.0}}" />
                 <TextBox x:Name="txtPercentSubmerged" Grid.Row="7" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GPercentSubmerged}" />
-                <TextBox x:Name="txtCollisionMultiplier" Grid.Row="8" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GCollisionMultiplier}" />
+                <TextBox x:Name="txtCollisionMultiplier" Grid.Row="8" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GCollisionMultiplier, StringFormat={}{0:#0.0}}" />
                 <TextBox x:Name="txtMonetaryValue" Grid.Row="9" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GMonetaryValue}" />
                 <TextBox x:Name="txtModelFlags" Grid.Row="10" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GModelFlags}" />
                 <TextBox x:Name="txtHandlingFlags" Grid.Row="11" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.GHandlingFlags}" />
@@ -139,36 +140,36 @@
                     <ColumnDefinition Width="19*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <!--Engine and braking Labels-->
                 <Label Content="Number of gears:" Grid.Row="0" />
                 <Label Content="Max velocity:" Grid.Row="1"  />
                 <Label Content="Acceleration:" Grid.Row="2"  />
                 <Label Content="Engine inertia:" Grid.Row="3"  />
-                <Label Content="Drive type:" Grid.Row="4"  />
-                <Label Content="Engine type:" Grid.Row="5"  />
+                <Label Content="Drive type (F/P/4):" Grid.Row="4"  />
+                <Label Content="Engine type (P/D/E):" Grid.Row="5"  />
                 <Label Content="Brake power:" Grid.Row="6"  />
                 <Label Content="Brake bias:" Grid.Row="7"  />
                 <Label Content="Steering lock:" Grid.Row="8"  />
                 <!--Engine and braking Text boxes-->
-                <TextBox x:Name="txtNumberOfGers" Grid.Row="0" Grid.Column="1" />
-                <TextBox x:Name="txtMaxVelocity" Grid.Row="1" Grid.Column="1" />
-                <TextBox x:Name="txtEngineAcc" Grid.Row="2" Grid.Column="1" />
-                <TextBox x:Name="txtInertia" Grid.Row="3" Grid.Column="1" />
-                <TextBox x:Name="txtDriveType" Grid.Row="4" Grid.Column="1" />
-                <TextBox x:Name="txtEngineType" Grid.Row="5" Grid.Column="1" />
-                <TextBox x:Name="txtBrakePower" Grid.Row="6" Grid.Column="1" />
-                <TextBox x:Name="txtBrakeBias" Grid.Row="7" Grid.Column="1" />
-                <TextBox x:Name="txtSteeringLock" Grid.Row="8" Grid.Column="1" />
+                <TextBox x:Name="txtNumberOfGers" Grid.Row="0" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.ENoGears}" VerticalContentAlignment="Center" />
+                <TextBox x:Name="txtMaxVelocity" Grid.Row="1" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.EMaxVelocity, StringFormat={}{0:#0.0}}" />
+                <TextBox x:Name="txtEngineAcc" Grid.Row="2" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.EEngineAcc, StringFormat={}{0:#0.0}}" />
+                <TextBox x:Name="txtInertia" Grid.Row="3" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.EEngineInertia, StringFormat={}{0:#0.0}}" />
+                <TextBox x:Name="txtDriveType" Grid.Row="4" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.EDriveType}" />
+                <TextBox x:Name="txtEngineType" Grid.Row="5" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.EEngineType}" />
+                <TextBox x:Name="txtBrakePower" Grid.Row="6" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.EDeceleration, StringFormat={}{0:#0.0}}" />
+                <TextBox x:Name="txtBrakeBias" Grid.Row="7" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.EBreakBias, StringFormat={}{0:#0.0}}" />
+                <TextBox x:Name="txtSteeringLock" Grid.Row="8" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.ESteeringLock, StringFormat={}{0:#0.0}}" />
             </Grid>
         </Border>
 
@@ -180,16 +181,16 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <!--Suspension Labels-->
                 <Label Content="Force level:" Grid.Row="0" />
@@ -203,16 +204,16 @@
                 <Label Content="Traction loss:" Grid.Row="8" />
                 <Label Content="Traction bias:" Grid.Row="9" />
                 <!--Suspension Text boxes-->
-                <TextBox x:Name="txtForceLevel" Grid.Row="0" Grid.Column="1" />
-                <TextBox x:Name="txtDampingLevel" Grid.Row="1" Grid.Column="1" />
-                <TextBox x:Name="txtHispeedComdamp" Grid.Row="2" Grid.Column="1" />
-                <TextBox x:Name="txtUpperLimit" Grid.Row="3" Grid.Column="1" />
-                <TextBox x:Name="txtLowerLimit" Grid.Row="4" Grid.Column="1" />
-                <TextBox x:Name="txtBiasBetween" Grid.Row="5" Grid.Column="1" />
-                <TextBox x:Name="txtAntiDriveMultiply" Grid.Row="6" Grid.Column="1" />
-                <TextBox x:Name="txtTractionMultiply" Grid.Row="7" Grid.Column="1" />
-                <TextBox x:Name="txtTractionLoss" Grid.Row="8" Grid.Column="1" />
-                <TextBox x:Name="txtTractionBias" Grid.Row="9" Grid.Column="1" />
+                <TextBox x:Name="txtForceLevel" Grid.Row="0" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.SForceLevel, StringFormat={}{0:#0.0}}"  />
+                <TextBox x:Name="txtDampingLevel" Grid.Row="1" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.SDampingLevel, StringFormat={}{0:#0.0}}"  />
+                <TextBox x:Name="txtHispeedComdamp" Grid.Row="2" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.SHiSpeedComdamp, StringFormat={}{0:#0.0}}"  />
+                <TextBox x:Name="txtUpperLimit" Grid.Row="3" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.SUpperLimit, StringFormat={}{0:#0.0}}"  />
+                <TextBox x:Name="txtLowerLimit" Grid.Row="4" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.SLowerLimit, StringFormat={}{0:#0.0} }"  />
+                <TextBox x:Name="txtBiasBetween" Grid.Row="5" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.SBiasFrontRear, StringFormat={}{0:#0.0}}"  />
+                <TextBox x:Name="txtAntiDriveMultiply" Grid.Row="6" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.SAntiDriveMultiply, StringFormat={}{0:#0.0}}"  />
+                <TextBox x:Name="txtTractionMultiply" Grid.Row="7" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.STractionMultiplier, StringFormat={}{0:#0.0}}"  />
+                <TextBox x:Name="txtTractionLoss" Grid.Row="8" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.STractionLoss, StringFormat={}{0:#0.0}}"  />
+                <TextBox x:Name="txtTractionBias" Grid.Row="9" Grid.Column="1"  Text="{Binding ElementName=lboxCarList, Path=SelectedItem.STractionBias, StringFormat={}{0:#0.0}}" />
             </Grid>
         </Border>
 
@@ -224,35 +225,36 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <!--Wheels Labels-->
                 <Label Content="Front lights:" Grid.Row="0" />
                 <Label Content="Rear lightw:" Grid.Row="1" />
                 <TextBlock Grid.Row="2" TextWrapping="Wrap" Foreground="AliceBlue" TextAlignment="Right">Vehicle anim group:</TextBlock>
                 <!--Wheels Text boxes-->
-                <TextBox x:Name="txtFrontLights" Grid.Row="0" Grid.Column="1" />
-                <TextBox x:Name="txtRearLight" Grid.Row="1" Grid.Column="1" />
-                <TextBox x:Name="txtVehicleAnimGr" Grid.Row="2" Grid.Column="1" />
+                <TextBox x:Name="txtFrontLights" Grid.Row="0" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.WFrontLights}"  />
+                <TextBox x:Name="txtRearLight" Grid.Row="1" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.WRearLights}"  />
+                <TextBox x:Name="txtVehicleAnimGr" Grid.Row="2" Grid.Column="1" Text="{Binding ElementName=lboxCarList, Path=SelectedItem.WVehicleAnimGroup}"  />
                 <Border Grid.Row="3" Grid.Column="1" Background="White" />
 
             </Grid>
         </Border>
 
-        <ListBox x:Name="lboxCarList" Grid.Row="1" ItemsSource="{Binding}" >
+        <ListBox x:Name="lboxCarList" Grid.Row="1" ItemsSource="{Binding}" Background="#FF136274" BorderBrush="#FF275FC3" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid >
-                        <TextBlock Text="{Binding Path=AVehicleIdentifier}" />
+                        <TextBlock Text="{Binding Path=AVehicleIdentifier}" Foreground="White" />
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
 
+        
 
     </Grid>
 </UserControl>
