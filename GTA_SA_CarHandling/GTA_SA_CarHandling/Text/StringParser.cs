@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GTA_SA_CarHandling.ModelClass;
+using System.Reflection;
+using GTA_SA_CarHandling.Model;
 
 namespace GTA_SA_CarHandling.Text
 {
@@ -30,7 +32,32 @@ namespace GTA_SA_CarHandling.Text
             return fileRows;
         }
 
+        public List<string> GetOriginalFileRows()
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            const string name = "GTA_SA_CarHandling.Text.handling.cfg";
+            List<string> fileRowsOrig = new List<string>();
 
+            // It's mandatory to set file property "Build action" to Embedded Resource and Copy always
+            using (Stream stream = assembly.GetManifestResourceStream(name))
+            {
+                using (StreamReader rdr = new StreamReader(stream))
+                {
+                    string line;
+                    while ((line = rdr.ReadLine()) != null)
+                    {
+                        fileRowsOrig.Add(line);
+                    }
+                }
+                return fileRowsOrig;
+            }
+        }
+
+        public List<VehicleViewModel> CreateViewModelFromArray(List<string> rows)
+        {
+            List<Vehicle> vehicles = ParseVehicleRows(rows);
+            return VehiclesViewModel.GetVehicles(vehicles);
+        }
         public static string LineStart(int RowId)
         {
             if (RowId >= 287 && RowId <= 299)
@@ -66,7 +93,7 @@ namespace GTA_SA_CarHandling.Text
                 {
                     string[] row = fileRows[i].Replace('.', ',').Split(' ');
                     Vehicle v = new Vehicle();
-                    
+
                     v.RowId = i;
 
                     v.AVehicleIdentifier = row[0];
@@ -111,6 +138,39 @@ namespace GTA_SA_CarHandling.Text
             }
 
             return vehicles;
+        }
+
+
+        public void WriteHandlingCfg(List<VehicleViewModel> vm, List<string> fileRows, string filePath)
+        {
+            StringBuilder sbCars = GenerateCarsString(vm);
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < fileRows.Count; i++)
+            {
+                sb.Append(fileRows[i] + Environment.NewLine);
+
+                if (i == 76)
+                {
+                    i = 286;
+                    sb.Append(sbCars);
+                }
+            }
+
+            File.WriteAllText(filePath, sb.ToString());
+        }
+
+        private StringBuilder GenerateCarsString(List<VehicleViewModel> vm)
+        {
+            vm = vm.OrderBy(x => x.RowId).ToList();
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var c in vm)
+            {
+                sb.Append(c.VehicleRowForSave);
+            }
+
+            return sb.Replace(",", ".");
         }
     }
 }

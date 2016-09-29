@@ -78,15 +78,7 @@ namespace GTA_SA_CarHandling.ModelClass
         public int WRearLights { get; set; }
         public int WVehicleAnimGroup { get; set; }
 
-        public string VehicleRowForSave
-        {
-            get
-            {
-                string.Format("{0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12} {13} {14} {15} {16} {17} {18} {19} {20} {21} {22} {23} {24} {25} {26} {27} {28} {29} {30} {31} {32} {33} {34} {35}",
-                    GMass, GTurnMass, DragMultiplier, GCenterOfMassX, GCenterOfMassY, GCenterOfMassZ, GPercentSubmerged, STractionMultiplier, STractionLoss, STractionBias, ENoGears, EMaxVelocity, EEngineAcc, EEngineInertia, EDriveType, EEngineType, EDeceleration, EBrakeBias, EBrakeABS, ESteeringLock, SForceLevel, SDampingLevel, SHiSpeedComdamp, SUpperLimit, SLowerLimit, SBiasFrontRear, SAntiDriveMultiply, WSeatOffsetDist, GCollisionMultiplier, GMonetaryValue, GModelFlags, GHandlingFlags, WFrontLights, WRearLights, WVehicleAnimGroup);
-                return null;
-            }
-        }
+        
 
         public int EBrakeABS { get; internal set; }
         public double WSeatOffsetDist { get; internal set; }

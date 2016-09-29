@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GTA_SA_CarHandling"
         xmlns:CustomControls="clr-namespace:GTA_SA_CarHandling.CustomControls" x:Class="GTA_SA_CarHandling.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="1036.958" MinWidth="1030" MinHeight="450">
+        Title="GTA San Andreas car handling editor" Height="600" Width="1236.958" WindowStartupLocation="CenterScreen"  >
 
     <Grid Name="MainGrid">
         <Grid.ColumnDefinitions>
@@ -15,14 +15,18 @@
             <ColumnDefinition Width="246*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="92*"/>
-            <RowDefinition Height="13*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <!--<CustomControls:MainContentControl Grid.Row="0" Grid.ColumnSpan="2" />-->
         <Button x:Name="btnLoad" Grid.Row="1" Background="#FF004080" FontSize="16" Grid.Column="0" Foreground="White" Click="btnLoad_Click" >Load</Button>
-        <Button x:Name="btnSave" Grid.Row="1" Background="#FFAA2F00" FontSize="16" Grid.Column="2" Foreground="White" Click="btnSave_Click" Content="Save handling.cfg" />
-        <TextBlock x:Name="lblInfo" Foreground="Red" FontSize="13" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" ></TextBlock>
+        <Button x:Name="btnReset" Grid.Row="1" Background="#FF519523" FontSize="16" Grid.Column="2" Foreground="White" Click="btnReset_Click" Content="Reset current car" Margin="0,0,143,0" />
+        <Button x:Name="btnSave" Grid.Row="1" Background="#FFAA2F00" FontSize="16" Grid.Column="2" Foreground="White" Click="btnSave_Click" Content="Save handling.cfg" Margin="156,0,0,0" />
         
+        <TextBlock x:Name="lblInfo" Foreground="Red" FontSize="13" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" ></TextBlock>
+        
+        
+
     </Grid>
 
 </Window>
