@@ -25,12 +25,14 @@ namespace GTA_SA_CarHandling.CustomControls
         private IView view;
         private List<VehicleViewModel> vm;
 
-        public MainContentControl(IView view)
+
+        public MainContentControl(IView view, List<VehicleViewModel> vm, string headerText)
         {
             InitializeComponent();
             this.view = view;
-            this.vm = view.VehiclesList().OrderBy(x => x.AVehicleIdentifier).ToList();
+            this.vm = vm.OrderBy(x => x.AVehicleIdentifier).ToList();
             MainGrid.DataContext = vm;
+            lblHeaderText.Text = headerText;
             txtSearch.TextChanged += TxtSearch_TextChanged;
         }
         

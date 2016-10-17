@@ -55,17 +55,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CustomControls\MainContentControl - Copy.xaml.cs">
+      <DependentUpon>MainContentControl - Copy.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IView.cs" />
     <Compile Include="Model\Description.cs" />
     <Compile Include="Model\Vehicle.cs" />
     <Compile Include="Model\VehicleViewModel.cs" />
     <Compile Include="Text\ReadResource.cs" />
     <Compile Include="Text\StringParser.cs" />
-    <Page Include="CustomControls\MainContentControl.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="CustomControls\MainContentControl - Copy.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="CustomControls\MainContentPage.xaml">
+    <Page Include="CustomControls\MainContentControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -79,9 +82,6 @@
     </Compile>
     <Compile Include="CustomControls\MainContentControl.xaml.cs">
       <DependentUpon>MainContentControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CustomControls\MainContentPage.xaml.cs">
-      <DependentUpon>MainContentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

@@ -10,6 +10,6 @@ namespace GTA_SA_CarHandling.Interfaces
     public interface IView
     {
         void SetInfo(string text);
-        List<VehicleViewModel> VehiclesList();
+        
     }
 }

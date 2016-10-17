@@ -272,7 +272,7 @@ namespace GTA_SA_CarHandling.Model
             }
         }
 
-        public double EBreakBias
+        public double EBrakeBias
         {
             get { return this.vehicle.EBrakeBias; }
             set
@@ -280,7 +280,7 @@ namespace GTA_SA_CarHandling.Model
                 this.vehicle.EBrakeBias = value;
                 if (this.PropertyChanged != null)
                 {
-                    this.PropertyChanged(this, new PropertyChangedEventArgs("EBreakBias"));
+                    this.PropertyChanged(this, new PropertyChangedEventArgs("EBrakeBias"));
                 }
             }
         }
@@ -466,8 +466,55 @@ namespace GTA_SA_CarHandling.Model
                 }
             }
         }
+
+        public int EBrakeABS
+        {
+            get { return this.vehicle.EBrakeABS; }
+            set
+            {
+                this.vehicle.EBrakeABS = value;
+                if (this.PropertyChanged != null)
+                {
+                    this.PropertyChanged(this, new PropertyChangedEventArgs("EBrakeABS"));
+                }
+            }
+        }
+
+        public double WSeatOffsetDist
+        {
+            get { return this.vehicle.WSeatOffsetDist; }
+            internal set
+            {
+                this.vehicle.WSeatOffsetDist = value;
+                if (this.PropertyChanged != null)
+                {
+                    this.PropertyChanged(this, new PropertyChangedEventArgs("WSeatOffsetDist"));
+                }
+            }
+        }
+
+        public string VehicleRowForSave
+        {
+            get
+            {
+                // 0 means mandatory, # optional
+                return string.Format
+                ("{0} {1:0.0} {2:0.0#} {3:0.0#} {4:0.0#} {5:0.0#} {6:0.0#} {7} {8:0.0#} {9:0.0#} {10:0.0#} " +
+                "{11} {12:0.0#} {13:0.0#} {14:0.0#} {15} {16} {17:0.0#} {18:0.0#} {19} {20:0.0#} {21:0.0#} " + 
+                "{22:0.0#} {23:0.0#} {24:0.0#} {25:0.0#} {26:0.0#} {27:0.0#} {28:0.0#} {29:0.0#} {30} " + 
+                "{31} {32} {33} {34} {35}",
+                    AVehicleIdentifier, GMass, GTurnMass, DragMultiplier, GCenterOfMassX, GCenterOfMassY, GCenterOfMassZ, GPercentSubmerged, STractionMultiplier, STractionLoss, STractionBias, 
+                    ENoGears, EMaxVelocity, EEngineAcc, EEngineInertia, EDriveType, EEngineType, EDeceleration, EBrakeBias, EBrakeABS, ESteeringLock, 
+                    SForceLevel, SDampingLevel, SHiSpeedComdamp, SUpperLimit, SLowerLimit, SBiasFrontRear, SAntiDriveMultiply, WSeatOffsetDist, GCollisionMultiplier, GMonetaryValue, 
+                    GModelFlags, GHandlingFlags, WFrontLights, WRearLights, WVehicleAnimGroup + Environment.NewLine
+                    );
+            }
+        }
+        
     }
 
+
+    
 
 
     public static class VehiclesViewModel

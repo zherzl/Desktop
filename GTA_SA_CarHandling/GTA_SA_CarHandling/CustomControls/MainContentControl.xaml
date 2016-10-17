@@ -73,14 +73,28 @@
 
 
         <!--Headers-->
-        <Border Grid.Row="0" Grid.Column="1"  Style="{DynamicResource BorderStyle1}" Background="#4C1E90C5" />
-        <Label Content="General" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource labelBold}"  />
-        <Border Grid.Row="0" Grid.Column="2"  Style="{DynamicResource BorderStyle1}" Background="#4C1E90C5" />
-        <Label Content="Engine and breaking" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource labelBold}"   />
-        <Border Grid.Row="0" Grid.Column="3"  Style="{DynamicResource BorderStyle1}" Background="#4C1E90C5" />
-        <Label Content="Suspension" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource labelBold}"    />
-        <Border Grid.Row="0" Grid.Column="4"  Style="{DynamicResource BorderStyle1}" Background="#4C1E90C5" />
-        <Label Content="Wheels" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource labelBold}" />
+        <Grid Grid.Column="0" Grid.ColumnSpan="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="196*"/>
+                <ColumnDefinition Width="248*"/>
+                <ColumnDefinition Width="157*"/>
+                <ColumnDefinition Width="196*"/>
+                <ColumnDefinition Width="153*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="lblHeaderText" HorizontalAlignment="Center" Grid.Column="1" Grid.ColumnSpan="4" FontSize="16" FontWeight="Bold" Foreground="Red"></TextBlock>
+            <Border Grid.Row="1" Grid.Column="1"  Style="{DynamicResource BorderStyle1}" Background="#4C1E90C5" />
+            <Label Content="General" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource labelBold}"  />
+            <Border Grid.Row="1" Grid.Column="2"  Style="{DynamicResource BorderStyle1}" Background="#4C1E90C5" />
+            <Label Content="Engine and breaking" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource labelBold}"   />
+            <Border Grid.Row="1" Grid.Column="3"  Style="{DynamicResource BorderStyle1}" Background="#4C1E90C5" />
+            <Label Content="Suspension" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource labelBold}"    />
+            <Border Grid.Row="1" Grid.Column="4"  Style="{DynamicResource BorderStyle1}" Background="#4C1E90C5" />
+            <Label Content="Wheels" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource labelBold}" />
+        </Grid>
 
         <!--General data-->
         <Border Grid.Row="1" Grid.Column="1" Style="{DynamicResource BorderStyle2}" >

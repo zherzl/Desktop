@@ -22,20 +22,7 @@ namespace GTA_SA_CarHandling.Text
             this.view = view;
         }
 
-        public static string GetOriginalFileContent()
-        {
-            Assembly assembly = Assembly.GetExecutingAssembly();
-            const string name = "GTA_SA_CarHandling.Text.handling.cfg";
-            
-            // It's mandatory to set file property "Build action" to Embedded Resource
-            using (Stream stream = assembly.GetManifestResourceStream(name))
-            {
-                using (StreamReader rdr = new StreamReader(stream))
-                {
-                    return rdr.ReadToEnd();
-                }
-            }
-        }
+       
 
 
         /// <summary>
