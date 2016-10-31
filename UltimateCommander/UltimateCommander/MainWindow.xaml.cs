@@ -15,6 +15,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UltimateCommander.Settings;
+using System.ComponentModel.Composition;
+using System.ComponentModel.Composition.Hosting;
+using UltimateCommander.CustomControls;
 
 namespace UltimateCommander
 {
@@ -23,11 +26,33 @@ namespace UltimateCommander
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow() { InitializeComponent(); }
+        public MainWindow()
+        {
+            InitializeComponent();
+            Compose();
+        }
 
         private SettingsVM context;
         private TabControl currentPane;
         public int TabCountLeft { get { return currentPane.Items.Count; } }
+
+
+        // Just a test of 
+        [Import]
+        string message;
+
+        
+
+
+        private void Compose()
+        {
+            AssemblyCatalog catalog = new AssemblyCatalog(System.Reflection.Assembly.GetExecutingAssembly());
+            CompositionContainer container = new CompositionContainer(catalog);
+            container.SatisfyImportsOnce(this);
+            //MessageBox.Show(message);
+        }
+
+
 
         private void MainWindow1_Loaded(object sender, RoutedEventArgs e)
         {
@@ -81,10 +106,10 @@ namespace UltimateCommander
             {
                 // just skip
             }
-            
+
         }
 
-        
+
 
         private void ListBoxItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -115,7 +140,7 @@ namespace UltimateCommander
         void run_MouseEnter(object sender, MouseEventArgs e)
         {
             Run r = sender as Run;
-            
+
         }
 
         void run_MouseLeave(object sender, MouseEventArgs e)
@@ -128,7 +153,7 @@ namespace UltimateCommander
             Run r = sender as Run;
             TextBlock block = r.Parent as TextBlock;
             StringBuilder str = new StringBuilder();
-            
+
             // Loop all inlines and retrieve dir path -> finish after clicked inline is added
             foreach (Run run in block.Inlines)
             {
@@ -170,7 +195,7 @@ namespace UltimateCommander
             TabItem item = sender as TabItem;
             Storyboard sb = FontSizeAnimation(item, "FontSize");
             sb.Begin();
-            
+
         }
 
 
@@ -221,7 +246,7 @@ namespace UltimateCommander
                 this.DragMove();
         }
 
-        
+
         private void WindowStateButtons_Click(object sender, RoutedEventArgs e)
         {
         }
@@ -230,17 +255,12 @@ namespace UltimateCommander
         {
         }
 
-       
-
-        
-
-
-
-
-
-
-
-
-
+        private void btnOpenSettings_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsWindow sett = new SettingsWindow();
+            sett.Show();
+            
+            
+        }
     }
 }

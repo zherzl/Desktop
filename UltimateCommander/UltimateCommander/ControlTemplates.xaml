@@ -30,8 +30,11 @@
 	<SolidColorBrush x:Key="TabItem.MouseOver.Border" Color="#7EB4EA"/>
 	<SolidColorBrush x:Key="TabItem.Disabled.Background" Color="#FF3BFFFF"/>
 	<SolidColorBrush x:Key="TabItem.Disabled.Border" Color="#D9D9D9"/>
-    <SolidColorBrush x:Key="TabItem.Selected.Border" Color="LightGray"/>
-    
+    <RadialGradientBrush x:Key="TabItem.Selected.Border" >
+        <GradientStop Color="#FFE2E2E2" Offset="0"/>
+        <GradientStop Color="White" Offset="1"/>
+    </RadialGradientBrush>
+
     <SolidColorBrush x:Key="TabItem.Selected.Foreground" Color="White"/>
     <SolidColorBrush x:Key="TabItem.Disabled.Foreground" Color="Black"/>
     

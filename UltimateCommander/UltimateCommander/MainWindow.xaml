@@ -28,7 +28,7 @@
         	<TranslateTransform/>
         </TransformCollection>
         <TransformGroup x:Key="Transform1" Children="{DynamicResource TransformCollection1}"/>-->
-        
+
         <!--<Style TargetType="{x:Type Button}" x:Key="btnStyle">
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
@@ -36,12 +36,12 @@
                 </Trigger>
             </Style.Triggers>
         </Style>-->
-    <!--Menu Wrap panel Gradient-->
-        <LinearGradientBrush x:Key="WrapPanelMenuBrush" EndPoint="0.5,1" StartPoint="0.5,0">
-        	<GradientStop Color="#FFBFBFBF" Offset="0"/>
-        	<GradientStop Color="#FFB2B2B2" Offset="1"/>
-        	<GradientStop Color="#FFC3C3C3" Offset="0.059"/>
-        	<GradientStop Color="#FF9C9C9C" Offset="0.948"/>
+        <!--Menu Wrap panel Gradient-->
+        <LinearGradientBrush x:Key="WrapPanelMenuBrush" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+            <GradientStop Color="#FF354451" Offset="1"/>
+            <GradientStop Color="#FF1D3F57"/>
+            <GradientStop Color="#FF243B4F" Offset="0.746"/>
+            <GradientStop Color="#FF1D3D55" Offset="0.318"/>
         </LinearGradientBrush>
 
         <!--Middle column splitter Linear Gradient-->
@@ -54,11 +54,11 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </LinearGradientBrush.RelativeTransform>
-        	<GradientStop Color="#FFE8FF00" Offset="0.009"/>
-        	<GradientStop Color="#FFDEDE01" Offset="1"/>
-        	<GradientStop Color="#FFA0A62A" Offset="0.511"/>
-        	<GradientStop Color="#FEB5BB13" Offset="0.56"/>
-        	<GradientStop Color="#FFB0C720" Offset="0.462"/>
+            <GradientStop Color="#FFE8FF00" Offset="0.009"/>
+            <GradientStop Color="#FFDEDE01" Offset="1"/>
+            <GradientStop Color="#FFA0A62A" Offset="0.511"/>
+            <GradientStop Color="#FEB5BB13" Offset="0.56"/>
+            <GradientStop Color="#FFB0C720" Offset="0.462"/>
         </LinearGradientBrush>
         <LinearGradientBrush x:Key="splitterRowBrush" EndPoint="0,1">
             <LinearGradientBrush.RelativeTransform>
@@ -69,22 +69,22 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </LinearGradientBrush.RelativeTransform>
-        	<GradientStop Color="#FFE8FF00" Offset="0.009"/>
-        	<GradientStop Color="#FFDEDE01" Offset="1"/>
-        	<GradientStop Color="#FFA0A62A" Offset="0.511"/>
-        	<GradientStop Color="#FEB5BB13" Offset="0.56"/>
-        	<GradientStop Color="#FFB0C720" Offset="0.462"/>
+            <GradientStop Color="#FFE8FF00" Offset="0.009"/>
+            <GradientStop Color="#FFDEDE01" Offset="1"/>
+            <GradientStop Color="#FFA0A62A" Offset="0.511"/>
+            <GradientStop Color="#FEB5BB13" Offset="0.56"/>
+            <GradientStop Color="#FFB0C720" Offset="0.462"/>
         </LinearGradientBrush>
 
         <!--Effect to display when user double clicks on tab to copy path to clipoard-->
 
         <Storyboard x:Key="AnimacijaX" AutoReverse="True">
-        	<DoubleAnimationUsingKeyFrames >
-        		<SplineDoubleKeyFrame KeyTime="0:0:0.1" Value="0.75"/>
-        	</DoubleAnimationUsingKeyFrames>
-        	<DoubleAnimationUsingKeyFrames >
-        		<SplineDoubleKeyFrame KeyTime="0:0:0.1" Value="0.75"/>
-        	</DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames >
+                <SplineDoubleKeyFrame KeyTime="0:0:0.1" Value="0.75"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames >
+                <SplineDoubleKeyFrame KeyTime="0:0:0.1" Value="0.75"/>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
 
         <!--<Storyboard x:Key="TestStoryboard">
@@ -130,13 +130,13 @@
 
         <Style x:Key="runStyleMouseLeave" TargetType="{x:Type Run}">
             <!--FontWeight="Bold" Foreground="#FF36C4EE"-->
-        	<Setter Property="FontWeight" Value="Bold" />
-        	<Setter Property="Foreground" Value="#FF36C4EE" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="#FF36C4EE" />
         </Style>
 
 
         <ControlTemplate TargetType="{x:Type Button}" x:Key="btnTemplate"/>
-        
+
     </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded">
@@ -145,87 +145,96 @@
         </EventTrigger>
     </Window.Triggers>
 
-	<Grid x:Name="grid">
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition x:Name="colLeftList" Width="{Binding ColDefLeftList.Width, Mode=OneWay}" />
-			<ColumnDefinition x:Name="colSplitter" Width="5"/>
-			<ColumnDefinition x:Name="colRightList" Width="*"/>
-		</Grid.ColumnDefinitions>
-		<Grid.RowDefinitions>
-			<RowDefinition Height="35*"/>
-			<RowDefinition Height="309*"/>
-			<RowDefinition Height="4*"/>
-			<RowDefinition Height="10*" MaxHeight="150"/>
-		</Grid.RowDefinitions>
+    <Grid x:Name="grid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="colLeftList" Width="{Binding ColDefLeftList.Width, Mode=OneWay}" />
+            <ColumnDefinition x:Name="colSplitter" Width="5"/>
+            <ColumnDefinition x:Name="colRightList" Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="567*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="18*" MaxHeight="150"/>
+        </Grid.RowDefinitions>
 
-		<!--Upper panel for menu. Binding is Grid column count (not necessary) -->
-		<Grid MouseDown="Grid_MouseDown" Grid.ColumnSpan="{Binding ColumnDefinitions.Count, ElementName=grid, Mode=OneWay}" Background="{StaticResource WrapPanelMenuBrush}">
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="1097*"/>
-				<ColumnDefinition Width="Auto"/>
-			</Grid.ColumnDefinitions>
-			<WrapPanel Grid.ColumnSpan="2" >
-				<Button x:Name="btnSaveSettings" >
-					<Grid>
-						<Image x:Name="imgTest" Source="Images/Download_folder.ico" Stretch="Uniform"/>
-					</Grid>
-				</Button>
-				<Button x:Name="btnLoadSettings"  >
-					<Grid>
-						<Image Source="Images/Download_folder.ico" Stretch="Uniform"/>
-					</Grid>
-				</Button>
-			</WrapPanel>
+        <!--Upper panel for menu. Binding is Grid column count (not necessary) -->
+        <Grid MouseDown="Grid_MouseDown" Grid.ColumnSpan="{Binding ColumnDefinitions.Count, ElementName=grid, Mode=OneWay}" Background="{StaticResource WrapPanelMenuBrush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1097*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <WrapPanel Grid.ColumnSpan="2" >
+                <Button x:Name="btnOpenSettings" Foreground="{x:Null}" Background="{x:Null}" Click="btnOpenSettings_Click" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="21*"/>
+                            <RowDefinition Height="18"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Image x:Name="imgTest" Source="Images/Buttons/53_Settings.png" />
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <TextBlock  Text="Settings" FontSize="16" Foreground="AliceBlue" VerticalAlignment="Bottom"  HorizontalAlignment="Center" Margin="10,0,10,0"/>
+                        </Grid>
+                    </Grid>
+                </Button>
+                <Button x:Name="btnLoadSettings"  >
+                    <Grid>
+                        <Image Source="Images/Download_folder.ico" Stretch="Uniform"/>
+                    </Grid>
+                </Button>
+            </WrapPanel>
 
-			<TextBox HorizontalAlignment="Left" Height="23" Margin="138,10,0,0" TextWrapping="Wrap" Text="{Binding ColDefLeftListValue}" VerticalAlignment="Top" Width="120"/>
-            
-			<StackPanel x:Name="stackPanelState" Grid.Column="1" Orientation="Horizontal"  HorizontalAlignment="Right">
-                
+            <TextBox HorizontalAlignment="Right" Height="23" Margin="0,0,10,10" TextWrapping="Wrap" Text="{Binding ColDefLeftListValue}" VerticalAlignment="Bottom" Width="120"/>
+
+            <StackPanel x:Name="stackPanelState" Grid.Column="1" Orientation="Horizontal"  HorizontalAlignment="Right">
+
                 <!--<Button x:Name="btnMax" Click="WindowStateButtons_Click" VerticalAlignment="Top" >
 					<local:btnMaxControl/>
 				</Button>-->
-				<!--<Button x:Name="btnClose" Click="WindowStateButtons_Click" VerticalAlignment="Top" />-->
+                <!--<Button x:Name="btnClose" Click="WindowStateButtons_Click" VerticalAlignment="Top" />-->
             </StackPanel>
+            
 
 
-		</Grid>
+        </Grid>
 
-		<!--Left side for displaying folders-->
-		<Grid Grid.Column="0" Grid.Row="1" Grid.RowSpan="2"  >
-			<TabControl x:Name="tabCtrlLeft" >
-				<TabItem FontSize="12" x:Name="mojTabItemDrugi" Style="{DynamicResource MyTabItem}" RenderTransformOrigin="0.5,0.5"   >
-					<TabItem.Header>
-						<TextBlock ><Run Text="D:\" /></TextBlock>
+        <!--Left side for displaying folders-->
+        <Grid Grid.Column="0" Grid.Row="1" Grid.RowSpan="2"  >
+            <TabControl x:Name="tabCtrlLeft" >
+                <TabItem FontSize="12" x:Name="mojTabItemDrugi" Style="{DynamicResource MyTabItem}" RenderTransformOrigin="0.5,0.5"   >
+                    <TabItem.Header>
+                        <TextBlock ><Run Text="D:\" /></TextBlock>
 
-						<!--D:\Sharp\Downloads\-->
-					</TabItem.Header>
+                        <!--D:\Sharp\Downloads\-->
+                    </TabItem.Header>
+                    <ListBox x:Name="lbLeftX" Background="{DynamicResource TabItem.Selected.Border}">
+                        <ListBoxItem Content="D:\Sharp\Downloads\" MouseDoubleClick="ListBoxItem_MouseDoubleClick" />
+                    </ListBox>
 
-					<ListBox x:Name="lbLeftX" Background="#FFA5DAE4">
-						<ListBoxItem Content="D:\Sharp\Downloads\" MouseDoubleClick="ListBoxItem_MouseDoubleClick" />
-					</ListBox>
+                </TabItem>
 
-				</TabItem>
-
-				<TabItem x:Name="mojTabItemPrvi" Style="{DynamicResource MyTabItem}" >
-					<TabItem.Header>Prvi tab</TabItem.Header>
-					<ListBox x:Name="lbLeft" Background="#FFFFCCCC" />
-				</TabItem>
-			</TabControl>
-		</Grid>
+                <TabItem x:Name="mojTabItemPrvi" Style="{DynamicResource MyTabItem}" >
+                    <TabItem.Header>Prvi tab</TabItem.Header>
+                    <ListBox x:Name="lbLeft" Background="#FFFFCCCC" />
+                </TabItem>
+            </TabControl>
+        </Grid>
 
         <!--Middle (column) splitter-->
-		<GridSplitter Background="{StaticResource spliiterBrush}" x:Name="gridSplitterMiddle" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"  DragCompleted="gridSplitter_DragCompleted" HorizontalAlignment="Stretch" />
+        <GridSplitter Background="{StaticResource spliiterBrush}" x:Name="gridSplitterMiddle" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"  DragCompleted="gridSplitter_DragCompleted" HorizontalAlignment="Stretch" />
 
-		<!--Right side for displaying folders-->
-		<Grid Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" >
-			<TabControl x:Name="tabCtrlRight" >
-				<ListBox  x:Name="lbRight" Background="#FFCCEFFF" />
-			</TabControl>
-		</Grid>
+        <!--Right side for displaying folders-->
+        <Grid Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" >
+            <TabControl x:Name="tabCtrlRight" >
+                <ListBox  x:Name="lbRight" Background="{DynamicResource TabItem.Selected.Border}" />
+            </TabControl>
+        </Grid>
 
         <!--Bottom (row) splitter-->
-		<GridSplitter Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" x:Name="gridSplitterBottom" Grid.Row="2" Grid.ColumnSpan="3" DragCompleted="gridSplitter_DragCompleted" HorizontalAlignment="Stretch" />
+        <GridSplitter Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" x:Name="gridSplitterBottom" Grid.Row="2" Grid.ColumnSpan="3" DragCompleted="gridSplitter_DragCompleted" HorizontalAlignment="Stretch" />
 
 
-	</Grid>
+    </Grid>
 </Window>

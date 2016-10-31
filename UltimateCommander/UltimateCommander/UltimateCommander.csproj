@@ -40,7 +40,9 @@
   <ItemGroup>
     <Reference Include="Microsoft.Expression.Effects" />
     <Reference Include="Microsoft.Expression.Interactions" />
+    <Reference Include="PresentationFramework.Aero" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -75,7 +77,11 @@
       <DependentUpon>Charts.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\TabWidthConverter.cs" />
+    <Compile Include="CustomControls\SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Extensions\ExtensionMethods.cs" />
+    <Compile Include="PluginManagement\MessageBox.cs" />
     <Compile Include="Settings\Settings.cs" />
     <Compile Include="Settings\SettingsVM.cs" />
     <Page Include="CustomControls\btnCloseControl.xaml">
@@ -101,6 +107,10 @@
     <Page Include="ControlTemplates.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\SettingsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -148,7 +158,6 @@
   <ItemGroup>
     <Resource Include="Images\SqlServer Icon.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\Close_default.png" />
     <Resource Include="Images\Close_mOver.png" />
@@ -156,6 +165,9 @@
     <Resource Include="Images\max_mOver.png" />
     <Resource Include="Images\min_default.png" />
     <Resource Include="Images\min_mOver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Buttons\53_Settings.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
