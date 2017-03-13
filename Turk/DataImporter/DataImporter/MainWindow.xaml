@@ -1,0 +1,73 @@
+﻿<Window x:Class="DataImporter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataImporter"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="650" Width="871">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="227*"/>
+            <ColumnDefinition Width="126*"/>
+            <ColumnDefinition Width="15*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="153*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Content="Text importer / parser tool" Grid.ColumnSpan="2" Margin="81,12,10,11"   />
+
+        <Label Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" FontSize="15" Height="30" Margin="0,12,10,12" Content="Folder locations:" />
+
+        <!--<TextBox Name="txtPath" Grid.Row="2" VerticalContentAlignment="Center" FontSize="15" Text="E:\Github\Turk\Fileovi\SingleFile" Background="#FFDEE9F7" Grid.Column="1" Grid.ColumnSpan="2"/>-->
+        <ListBox x:Name="lbFilePaths" Grid.Row="4" Grid.Column="1" Grid.RowSpan="2">
+            <ListBoxItem>E:\Turk</ListBoxItem>
+            <ListBoxItem>\\pcma3076\D\CW\manuser\HistoricalWaferDataLogs\</ListBoxItem>
+            <ListBoxItem>\\pcma3210\D\CW\manuser\HistoricalWaferDataLogs\</ListBoxItem>
+            <ListBoxItem>\\pcma3210\CW\manuser\HistoricalWaferDataLogs\</ListBoxItem>
+            <ListBoxItem>\\pcma3378\D\CW\manuser\HistoricalWaferDataLogs\</ListBoxItem>
+            <ListBoxItem>\\pcma3880\D\CW\manuser\HistoricalWaferDataLogs\</ListBoxItem>
+            <ListBoxItem>\\pcma4259\D\CW\manuser\HistoricalWaferDataLogs\</ListBoxItem>
+            <ListBoxItem>\\pcma4319\D\CW\manuser\HistoricalWaferDataLogs\</ListBoxItem>
+            <ListBoxItem>\\pcma2060\D\CW\manuser\HistoricalWaferDataLogs\</ListBoxItem>
+
+      
+
+        </ListBox>
+
+        <Label Grid.Row="1" Grid.Column="3" FontSize="15">File extension:</Label>
+        <TextBox Name="txtExtension" Grid.Row="2" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15" Text="txt" Background="#FFDEE9F7"></TextBox>
+
+
+        <Grid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="121*"/>
+                <ColumnDefinition Width="240*"/>
+            </Grid.ColumnDefinitions>
+
+        </Grid>
+        <Button x:Name="btnStop" Content="Stop Import" Grid.Column="2" Grid.Row="2" Foreground="White" Click="btnStop_Click" Margin="184,2,0,52" Grid.RowSpan="2" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFC10000" Offset="1"/>
+                    <GradientStop Color="#FFAE0404"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <ListBox x:Name="lboxInfo" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" Background="#FFDEE8EA" />
+        <Button x:Name="btnStart" Content="Start Import" Grid.Column="2" Foreground="White" Click="btnStart_Click" Margin="5,1,157,0" Grid.Row="2" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF08B200" Offset="0"/>
+                    <GradientStop Color="#FF056600" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Window>
